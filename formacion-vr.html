@@ -25,33 +25,7 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-  <script>
-            const form = document.getElementById("contactForm");
-            form.addEventListener('submit', (e) => {
-              e.preventDefault();
-              const captchaResponse = grecaptcha.getResponse();
-              if (captchaResponse.length > 0) {
-                let formData = new FormData(form);
-                fetch('https://docs.google.com/forms/d/1vMEeNVCu76VK-wJebYRIyYV2XtxVN6b1Dpcg2JYHnic/formResponse', {
-                  mode: 'no-cors',
-                  method: 'POST',
-                  body: formData,
-                  headers: {'X-Requested-With': 'XMLHttpRequest'}
-                }).then(response => {
-                  if(response.ok) {
-                    console.log("Repuesta ok");
-                    form.reset();
-                  } else if (response.status == 0) {
-                    console.log("RESPUESTA OK");
-                    form.reset();
-                  } else {
-                    console.log("RESPEUSTA MAL");
-                    form.reset();
-                  }
-                });
-              }
-            });
-        </script>
+  
   <!-- =======================================================
   * Template Name: Consulting
   * Template URL: https://bootstrapmade.com/bootstrap-consulting-website-template/
@@ -618,11 +592,37 @@ Despídete de configuraciones complicadas y problemas técnicos. Nuestro proceso
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
+  <script>
+            const form = document.getElementById("contactForm");
+            form.addEventListener('submit', (e) => {
+              e.preventDefault();
+              const captchaResponse = grecaptcha.getResponse();
+              if (captchaResponse.length > 0) {
+                let formData = new FormData(form);
+                fetch('https://docs.google.com/forms/d/1vMEeNVCu76VK-wJebYRIyYV2XtxVN6b1Dpcg2JYHnic/formResponse', {
+                  mode: 'no-cors',
+                  method: 'POST',
+                  body: formData,
+                  headers: {'X-Requested-With': 'XMLHttpRequest'}
+                }).then(response => {
+                  if(response.ok) {
+                    console.log("Repuesta ok");
+                    form.reset();
+                  } else if (response.status == 0) {
+                    console.log("RESPUESTA OK");
+                    form.reset();
+                  } else {
+                    console.log("RESPEUSTA MAL");
+                    form.reset();
+                  }
+                });
+              }
+            });
+        </script>
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
